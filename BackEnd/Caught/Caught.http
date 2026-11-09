@@ -1,0 +1,48 @@
+@Caught_HostAddress = http://localhost:5141
+
+###
+POST {{Caught_HostAddress}}/api/creators/register
+Content-Type: application/json
+
+{
+  "fullName": "Avery Chen",
+  "email": "avery@example.com",
+  "password": "secret",
+  "handle": "avery"
+}
+
+###
+GET {{Caught_HostAddress}}/api/creators/handles/avery
+
+###
+POST {{Caught_HostAddress}}/api/creators/login
+Content-Type: application/json
+
+{
+  "email": "avery@example.com",
+  "password": "secret"
+}
+
+###
+GET {{Caught_HostAddress}}/api/products?creatorId=1
+
+###
+POST {{Caught_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "creatorId": 1,
+  "name": "Night Oil",
+  "description": "Three drops, lights off.",
+  "imageUrl": "https://images.example/oil.jpg",
+  "price": 42.50,
+  "currency": "USD",
+  "tiktokUrl": "https://www.tiktok.com/shop/oil",
+  "amazonUrl": "",
+  "brandUrl": "",
+  "availability": "available",
+  "backupProductId": null
+}
+
+###
+GET {{Caught_HostAddress}}/api/shelf/avery_chen
